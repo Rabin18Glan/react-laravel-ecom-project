@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../store/hooks'
 import { storeSelectedProduct } from '../store/slices/productSlice'
 import { CardProps} from '../types/types'
-import StarRating from '../customHooks/Star'
+import StarRating from './Star'
 
 const Card:React.FC<CardProps>=({product,onClick,className})=> {
   const navigate= useNavigate();

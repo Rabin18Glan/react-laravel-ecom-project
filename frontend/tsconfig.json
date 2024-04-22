@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/customHooks/Star.tsx"],
+  "include": ["src", "src/components/Star.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
