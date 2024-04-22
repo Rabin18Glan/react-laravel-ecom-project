@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Routes, Route, createBrowserRouter, createRoutesFromElements, useLocation, Navigate } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Register from "./pages/Register/Register";
-import Login from "./pages/Login/Login";
-import CreateProduct from "./pages/CreateProduct/CreateProduct";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import CreateProduct from "./pages/CreateProduct";
 import Root from "./Root";
-import About from "./pages/About/About";
-import FullDetails from "./pages/FullDetails/FullDetails";
-import Contact from "./pages/Contact/Contact";
-import Location from "./pages/Location/Location";
-import Orders from "./pages/Orders/Orders";
-import Buy from "./pages/Buy/Buy";
+import About from "./pages/About";
+import FullDetails from "./pages/FullDetails";
+import Contact from "./pages/Contact";
+import Location from "./pages/Location";
+import Orders from "./pages/Orders";
+import Buy from "./pages/Buy";
 
 
 const router = createBrowserRouter( 

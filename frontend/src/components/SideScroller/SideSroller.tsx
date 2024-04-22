@@ -1,9 +1,9 @@
 import React from 'react'
-import { Product } from '../../Types/Types'
+import { Product } from '../../types/types'
 import SideScrollerstyled from './SideScrollerstyled'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import Card from '../Card/Card'
-import { storeSelectedProduct } from '../../store/slices/product/productSlice'
+import Card from '../Card'
+import { storeSelectedProduct } from '../../store/slices/productSlice'
 
 
 function SideSroller({products,className}:{products:Product[],className:string}) {
