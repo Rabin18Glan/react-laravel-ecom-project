@@ -8,13 +8,9 @@ import MyButton from './Button/MyButton';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { AiFillProfile, AiOutlineAccountBook, AiOutlineLogout } from 'react-icons/ai';
 import { FaFaceFlushed, FaPerson, FaRegFaceLaughWink } from 'react-icons/fa6';
-import { useDispatch } from 'react-redux';
 import { logout } from '../store/slices/authSlice';
-import { store } from '../store/store';
 import { refresh } from '../store/slices/orderSlice';
 import OrdersButton from './Button/OrdersButton';
-import { useFetchUserCart } from '../customHooks/useFetchUserCart';
-
 export default function Header() {
 
   const dispactch = useAppDispatch();

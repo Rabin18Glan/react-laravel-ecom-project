@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import StarRating from '../../../Star';
+import StarRating from '../customHooks/Star';
 import AddOrders from './AddOrders';
 import RateProduct from './RateProduct';
 import Reviews from './Reviews';

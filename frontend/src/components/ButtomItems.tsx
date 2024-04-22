@@ -1,7 +1,4 @@
-import React from 'react'
 import { Product } from '../types/types'
-
-import SideSroller from './SideScroller/SideSroller'
 import SelectRange from './SelectRange'
 import useRangeOfProduct from '../customHooks/useRangeOfProduct'
 import Card from './Card'

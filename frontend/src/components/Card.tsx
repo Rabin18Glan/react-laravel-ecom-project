@@ -1,9 +1,10 @@
 import React from 'react'
-import StarRating from '../../../Star'
+
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../store/hooks'
 import { storeSelectedProduct } from '../store/slices/productSlice'
 import { CardProps} from '../types/types'
+import StarRating from '../customHooks/Star'
 
 const Card:React.FC<CardProps>=({product,onClick,className})=> {
   const navigate= useNavigate();
@@ -18,7 +19,7 @@ const Card:React.FC<CardProps>=({product,onClick,className})=> {
       <h2 className="card-title text-gray-700">{product.name}</h2>
       <p className='text-gray-700'>Rs.{product.price}</p>
     <div className='flex'>
-    <p className='text-gray-700'><StarRating rating={product.ratings}></StarRating></p>
+    <p className='text-gray-700'><StarRating className='' rating={product.ratings}></StarRating></p>
       <button className="badge badge-outline">{product.category}</button>
     </div>
 

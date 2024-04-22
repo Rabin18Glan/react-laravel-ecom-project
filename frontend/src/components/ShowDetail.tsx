@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRating from '../../../Star';
+import StarRating from '../customHooks/Star';
 import MyButton from './Button/MyButton';
 import { useNavigate } from 'react-router-dom';
 import {useAppSelector } from '../store/hooks';
