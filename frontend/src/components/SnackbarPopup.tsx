@@ -1,5 +1,5 @@
 import React from 'react'
-import MyButton from '../Button/MyButton'
+import MyButton from './Button/MyButton'
 import { Snackbar } from '@mui/material'
 
 function SnackbarPopup({showSnackbar,handleCloseSnackbar}:any) {

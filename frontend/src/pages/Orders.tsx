@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { fectchCarts, removeFromCart } from '../store/slices/orderSlice';
-import ListTile from '../components/ListTile';
 import MyButton from '../components/Button/MyButton';
-import { useNavigate } from 'react-router-dom';
 import Cart from '../components/Cart';
-import axios from 'axios';
-import { useFetchUserCart } from '../customHooks/useFetchUserCart';
+import ListTile from '../components/ListTile';
+import { useAppSelector } from '../store/hooks';
+
 
 function Orders() {
     const orderedProduct = useAppSelector(state=>state.order.ordered)
-
     const addedToCart = useAppSelector(state=>state.order.cart);
-   
-    const navigate= useNavigate();
-  
-
-
 
   return (
     <>

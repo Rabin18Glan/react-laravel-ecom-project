@@ -13,8 +13,6 @@ const useShuffleProduct = ()=>{
     
   useEffect(() => {
 
-
-
     for (let i = shuffledProductCategory.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledProductCategory[i], shuffledProductCategory[j]] = [shuffledProductCategory[j], shuffledProductCategory[i]];

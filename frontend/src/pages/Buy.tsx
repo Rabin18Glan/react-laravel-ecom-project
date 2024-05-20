@@ -1,4 +1,3 @@
-import React from 'react'
 import MyButton from '../components/Button/MyButton'
 
 function Buy() {

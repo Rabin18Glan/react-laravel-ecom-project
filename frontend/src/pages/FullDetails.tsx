@@ -1,13 +1,13 @@
 
-import SideScroller from '../components/SideScroller/SideSroller';
-import ProductFullDetail from '../components/ProductFullDetail';
-import useShuffleProduct from '../customHooks/useShuffleProduct';
-import { useCustomRedux } from '../customHooks/useReduxStore';
 import { useNavigate } from 'react-router-dom';
 import ButtomItems from '../components/ButtomItems';
+import ProductFullDetail from '../components/ProductFullDetail';
+import SideScroller from '../components/SideScroller/SideSroller';
+import { useCustomRedux } from '../customHooks/useReduxStore';
+import useShuffleProduct from '../customHooks/useShuffleProduct';
 
 
-function FullDetails() {
+const FullDetails = ()=> {
   const navigate=useNavigate();
   const{currentSelectedProduct} = useCustomRedux()
 const {shuffledProductCategory,shuffledProducts}= useShuffleProduct();

@@ -18,9 +18,12 @@ class UserCartController extends Controller
 
 
         return response()->json(
-            ['status'=>1,
-                'user_id' => $userId, 
-            'products' => $userCartProducts]);
+            [
+                'status' => 1,
+                'user_id' => $userId,
+                'products' => $userCartProducts
+            ]
+        );
     }
 
     /**
@@ -35,43 +38,41 @@ class UserCartController extends Controller
      * Store a newly created resource in storage.
      */
     public function storeCart(Request $request)
-    {try{
-        $userId =$request->input('user_id');
-        $productId = $request->input('product_id');
-        $count = $request->input('count', 1); // Default count is 1 if not provided
+    {
+        try {
+            $userId = $request->input('user_id');
+            $productId = $request->input('product_id');
+            $count = $request->input('count', 1); // Default count is 1 if not provided
 
-        
-        $userCart = UserCart::where('user_id', $userId)
-            ->where('product_id', $productId)
-            ->first();
 
-        if ($userCart) {
-            // Product already exists in the cart, update the count
-            $userCart->count += $count;
-            $userCart->save();
-        } else {
-            // Product does not exist in the cart, create a new entry
-            $userCart = new UserCart();
-            $userCart->user_id = $userId;
-            $userCart->product_id = $productId;
-            $userCart->count = $count;
-            $userCart->save();
+            $userCart = UserCart::where('user_id', $userId)
+                ->where('product_id', $productId)
+                ->first();
+
+            if ($userCart) {
+                // Product already exists in the cart, update the count
+                $userCart->count += $count;
+                $userCart->save();
+            } else {
+                // Product does not exist in the cart, create a new entry
+                $userCart = new UserCart();
+                $userCart->user_id = $userId;
+                $userCart->product_id = $productId;
+                $userCart->count = $count;
+                $userCart->save();
+            }
+
+            return response()->json([
+                'status' => 1,
+                'message' => 'Product added to cart',
+                'data' => $userCart
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 0,
+                'message' => 'Internal Server Error',
+            ]);
         }
-
-        return response()->json([
-            'status'=>1,
-            'message' => 'Product added to cart',
-        'data'=>$userCart],200);
-
-            
-    }
-    catch (\Exception $e){
-        return response()->json([
-            'status'=>0,
-            'message' => 'Internal Server Error',
-        ]);
-    }
-
     }
 
     /**
@@ -80,30 +81,24 @@ class UserCartController extends Controller
     public function delete($id)
     {
         $product = UserCart::find($id);
-        if($product)
-        {
-try {
-    $product->delete();
-    return response()->json([
-'status'=>1,
-'message'=>'deleted successfully',
-    ],200);
-}
-    catch (\Exception $e){
-        return response()->json([
-            'status'=>0,
-            'message'=>'Internal Server Error '.$e,
-                ],500);
-    
-}
-
-        }
-        else{
+        if ($product) {
+            try {
+                $product->delete();
+                return response()->json([
+                    'status' => 1,
+                    'message' => 'deleted successfully',
+                ], 200);
+            } catch (\Exception $e) {
+                return response()->json([
+                    'status' => 0,
+                    'message' => 'Internal Server Error ' . $e,
+                ], 500);
+            }
+        } else {
             return response()->json([
-                'status'=>0,
-                'message'=>'There is no such product',
-                    ],400);
-    
+                'status' => 0,
+                'message' => 'There is no such product',
+            ], 400);
         }
         //
     }

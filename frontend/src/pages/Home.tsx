@@ -1,10 +1,9 @@
-import {useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import SearchSection from '../components/SearchSection';
 import ShowItems from '../components/ShowItems';
+import ShowSearchedItems from '../components/ShowSearchedItems';
 import useMakeCategory from '../customHooks/useMakeCategory';
 import useProductSearch from '../customHooks/useSearchProduct';
-import ShowSearchedItems from '../components/ShowSearchedItems';
-import SearchSection from '../components/SearchSection';
-import { useFetchAllProducts } from '../customHooks/useFetchAllProducts';
 
 
 

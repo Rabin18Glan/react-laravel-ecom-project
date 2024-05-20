@@ -1,6 +1,3 @@
-import React from 'react';
-import MyButton from './Button/MyButton';
-
 
 
 const ListTile = ({ title, subtitle, imageSrc, trailing,leading }:any) => {

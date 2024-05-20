@@ -5,7 +5,7 @@ import ListTile from "./ListTile";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import axios from "axios";
 import { deleteCartApi } from "../api/api";
-import { CartProduct, Product } from "../types/types";
+import { CartProduct} from "../types/types";
 
 const Cart = ({cartProduct}:{cartProduct:CartProduct}) => {
     const [itemCount, setItemCount] = useState(cartProduct.count);

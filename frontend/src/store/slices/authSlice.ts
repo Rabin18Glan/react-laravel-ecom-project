@@ -11,17 +11,20 @@ interface AuthState {
     status: boolean;
     userData: UserData;
 }
-const state:AuthState= JSON.parse(localStorage.getItem('auth')||'null');
+
+// Safely parse the saved state from localStorage
+const savedState = localStorage.getItem('auth');
+const parsedState: AuthState | null = savedState ? JSON.parse(savedState) : null;
 
 const initialState: AuthState = {
-    token:state.token,
-    status: false,
+    token: parsedState?.token || null,
+    status: parsedState?.token ? true : false,
     userData: {
-        user_id: state.userData.user_id,
-        name:state.userData.name,
-        email:state.userData.email
+        user_id: parsedState?.userData.user_id || null,
+        name: parsedState?.userData.name || null,
+        email: parsedState?.userData.email || null
     }
-}
+};
 
 const authSlice = createSlice({
     name: 'auth',
@@ -31,8 +34,8 @@ const authSlice = createSlice({
             state.token = action.payload.token;
             state.status = true;
             state.userData = action.payload.userData;
-            const authData = {token:state.token ,userData:state.userData};
-            localStorage.setItem('auth',JSON.stringify(authData));
+            const authData = { token: state.token, userData: state.userData };
+            localStorage.setItem('auth', JSON.stringify(authData));
         },
         logout: (state) => {
             state.token = null;
@@ -45,7 +48,7 @@ const authSlice = createSlice({
             localStorage.removeItem('auth');
         }
     }
-})
+});
 
 export const { login, logout } = authSlice.actions;
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Review } from '../types/types'
 import ListTile from './ListTile'
-import StarRating from '../../../Star'
+import StarRating from '../components/Star'
 
 function ReviewCard({review}:{review:Review}) {
   return (

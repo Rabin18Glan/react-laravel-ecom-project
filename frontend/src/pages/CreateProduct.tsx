@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import React, { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
 import { useAppSelector } from '../store/hooks';
 const schema = z.object({
   name: z.string().min(3),
